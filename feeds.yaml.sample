@@ -1,0 +1,16 @@
+chats:
+  - chat_name: 'News'
+    chat_id: '<YOUR CHAT ID HERE>'
+    feeds:
+      - name: 'Reuters Top'
+        url: 'http://feeds.reuters.com/reuters/topNews'
+        disabled: true
+      - name: 'Arstechnica'
+        url: 'http://feeds.arstechnica.com/arstechnica/index'
+        disabled: false
+  - chat_name: 'Games'
+    chat_id: '<YOUR CHAT ID HERE>'
+    feeds:
+      - name: 'Kotaku'
+        url: 'https://kotaku.com/rss'
+        disabled: false

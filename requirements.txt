@@ -1,0 +1,6 @@
+feedparser
+python-telegram-bot
+sqlitedict
+python-dateutil
+tzlocal
+pyyaml
