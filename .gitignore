@@ -107,3 +107,4 @@ venv.bak/
 *.sqlite
 *.test.yaml
 feeds.yaml
+*-test.py
