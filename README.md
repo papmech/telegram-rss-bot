@@ -23,7 +23,7 @@ pip3 install -r requirements.txt
 Run the bot (assumes that ```python3``` is the binary to run Python 3).
 
 ```
-python3 .\news-scraper-bot-v2.py "<YOUR_BOT_TOKEN>" "@yourchannelorchatid" --interval 60
+python3 .\news-scraper-bot-v2.py "<YOUR_BOT_TOKEN>" --interval 60
 ```
 
 ## Authors
