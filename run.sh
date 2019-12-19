@@ -11,7 +11,7 @@ do
     else
         echo "USAGE: run.sh <BOT_TOKEN>"
         echo "USAGE: run.sh <BOT_TOKEN> <SQLITE_DB_FILE>"
-        exit -1
+        exit 1
     fi
     TASK_PID=$!
     echo "Got TASK_PID = $TASK_PID"
