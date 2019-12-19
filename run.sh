@@ -6,6 +6,7 @@ do
     then
         python3 telegram-rss-bot.py "$1" --interval 60 &
     elif [ $# -eq 2 ]
+    then
         python3 telegram-rss-bot.py "$1" --interval 60 --seendb "$2" &
     else
         echo "USAGE: run.sh <BOT_TOKEN>"
