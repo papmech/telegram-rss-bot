@@ -90,6 +90,7 @@ def main():
     # parser.add_argument('chat_id', action='store', default=None, help="The destination channel or chat in the format @channelname")
     parser.add_argument('--interval', dest='interval', action='store', type=int, default=60, help="Interval in seconds to refresh the RSS feeds")
     parser.add_argument('--feeds', dest='feeds', action='store', type=str, default='feeds.yaml', help="YAML file containing chats and feeds")
+    parser.add_argument('--seendb', dest='seendb', action='store', type=str, default='seen_urls.sqlite', help="SQLite db for storing seen URLs")
     parser.add_argument('--runonce', action='store_true', default=False, help="Scrape once and quit")
     args = parser.parse_args()
 
@@ -105,7 +106,7 @@ def main():
     updater = Updater(args.bot_token)
 
     for chat in feeds_config['chats']:
-        seen_urls_dict = SqliteDict('./seen_urls.sqlite', autocommit=True, tablename=chat['chat_name'])
+        seen_urls_dict = SqliteDict(args.seendb, autocommit=True, tablename=chat['chat_name'])
         if args.runonce:
             updater.job_queue.run_once(update_feeds, 0, context=(chat['chat_name'], chat['chat_id'], seen_urls_dict, chat['feeds']))
         else:
