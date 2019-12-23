@@ -29,7 +29,10 @@ logger = logging.getLogger(__name__)
 SGT = pytz.timezone('Asia/Singapore')
 RSS_FROM_THIS_TIMESTAMP = dt.datetime.strptime('20 Mar 2019 2:30PM', '%d %b %Y %I:%M%p').astimezone(SGT)
 
-def update_feeds(bot, job):
+# def update_feeds(bot, job):
+def update_feeds(context):
+    job = context.job
+    bot = context.bot
     chat_name, chat_id, seen_urls_dict, feeds = job.context
     logger.debug("update_feeds called! chat_name = '%s' | chat_id = '%s'" % (chat_name, chat_id))
 
@@ -103,7 +106,7 @@ def main():
             raise exc
 
     logger.info("RSS Scraping Telegram Bot starting up...")
-    updater = Updater(args.bot_token)
+    updater = Updater(args.bot_token, use_context=True)
 
     for chat in feeds_config['chats']:
         seen_urls_dict = SqliteDict(args.seendb, autocommit=True, tablename=chat['chat_name'])
