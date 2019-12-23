@@ -108,3 +108,5 @@ venv.bak/
 *.test.yaml
 feeds.yaml
 *-test.py
+
+.vscode
